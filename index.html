@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSCIÊNCIA NEGRA • Resistência, Cultura, Poder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Audiowide&family=Black+Ops+One&family=Bungee+Inline&family=Passion+One:wght@400;700;900&family=Staatliches&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #E63946;
+            --yellow: #FFD60A;
+            --green: #06D6A0;
+            --black: #1a1a1a;
+            --white: #FFF;
+            --gold: #FFB703;
+            --purple: #9D4EDD;
+            --orange: #F77F00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            font-family: 'Passion One', cursive;
+            line-height: 1.4;
+        }
+
+        /* Padrão de fundo afro-geométrico animado */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(230, 57, 70, 0.1) 35px, rgba(230, 57, 70, 0.1) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255, 214, 10, 0.1) 35px, rgba(255, 214, 10, 0.1) 70px),
+                radial-gradient(circle at 20% 50%, rgba(6, 214, 160, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.15) 0%, transparent 50%);
+            animation: backgroundPulse 20s ease-in-out infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header Maximalista */
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--red) 0%, var(--purple) 50%, var(--black) 100%);
+            border-bottom: 15px solid var(--yellow);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-conic-gradient(from 0deg at 30% 30%, var(--green) 0deg 60deg, transparent 60deg 120deg),
+                repeating-conic-gradient(from 0deg at 70% 70%, var(--orange) 0deg 45deg, transparent 45deg 90deg);
+            opacity: 0.2;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-title {
+            font-family: 'Black Ops One', cursive;
+            font-size: clamp(3rem, 15vw, 12rem);
+            text-align: center;
+            background: linear-gradient(45deg, var(--yellow), var(--gold), var(--orange), var(--red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            letter-spacing: 0.05em;
+            animation: titleGlow 3s ease-in-out infinite, bounce 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            line-height: 1;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px var(--yellow)) drop-shadow(0 0 40px var(--red)); }
+            50% { filter: drop-shadow(0 0 40px var(--orange)) drop-shadow(0 0 60px var(--purple)); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .subtitle {
+            font-family: 'Audiowide', cursive;
+            font-size: clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+            color: var(--yellow);
+            text-shadow: 3px 3px 0 var(--black), -1px -1px 0 var(--red);
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Seção de Citações Rotativas */
+        .quotes-section {
+            background: linear-gradient(90deg, var(--green) 0%, var(--purple) 100%);
+            padding: 3rem 2rem;
+            border-top: 10px solid var(--yellow);
+            border-bottom: 10px solid var(--red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quotes-section::before {
+            content: '◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 200%;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.1);
+            animation: scrollText 20s linear infinite;
+            transform: translateY(-50%);
+        }
+
+        @keyframes scrollText {
+            from { transform: translateX(0) translateY(-50%); }
+            to { transform: translateX(-50%) translateY(-50%); }
+        }
+
+        .quote {
+            font-family: 'Righteous', cursive;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+        }
+
+        /* Grid Maximalista de Ícones */
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--black);
+        }
+
+        .icon-card {
+            background: linear-gradient(135deg, var(--red), var(--orange));
+            padding: 2rem;
+            border: 8px solid var(--yellow);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-card:nth-child(even) {
+            transform: rotate(2deg);
+            background: linear-gradient(135deg, var(--purple), var(--green));
+        }
+
+        .icon-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            border-color: var(--white);
+            box-shadow: 0 15px 50px rgba(255, 214, 10, 0.5);
+        }
+
+        .icon-card::before {
+            content: '★';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.2;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .icon-card h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--yellow);
+            text-shadow: 3px 3px 0 var(--black);
+            letter-spacing: 0.1em;
+        }
+
+        .icon-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-family: 'Passion One', cursive;
+        }
+
+        /* Seção de Personalidades */
+        .heroes-section {
+            background: linear-gradient(180deg, var(--red) 0%, var(--black) 50%, var(--green) 100%);
+            padding: 4rem 2rem;
+            border-top: 15px dashed var(--yellow);
+            border-bottom: 15px dashed var(--orange);
+        }
+
+        .heroes-title {
+            font-family: 'Monoton', cursive;
+            font-size: clamp(3rem, 8vw, 7rem);
+            text-align: center;
+            color: var(--yellow);
+            margin-bottom: 3rem;
+            animation: neonPulse 2s ease-in-out infinite;
+            text-shadow:
+                0 0 10px var(--yellow),
+                0 0 20px var(--yellow),
+                0 0 30px var(--orange),
+                0 0 40px var(--orange);
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-card {
+            background: var(--black);
+            border: 5px solid var(--gold);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:nth-child(even) {
+            clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+            border-color: var(--purple);
+        }
+
+        .hero-card:hover {
+            transform: scale(1.1);
+            border-width: 8px;
+            z-index: 10;
+        }
+
+        .hero-name {
+            font-family: 'Staatliches', cursive;
+            font-size: 2rem;
+            color: var(--yellow);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title-text {
+            font-family: 'Passion One', cursive;
+            font-size: 1.2rem;
+            color: var(--green);
+        }
+
+        /* Seção Cultural */
+        .culture-section {
+            background:
+                repeating-linear-gradient(0deg, var(--red) 0px, var(--red) 10px, var(--yellow) 10px, var(--yellow) 20px, var(--green) 20px, var(--green) 30px),
+                var(--black);
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .culture-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .culture-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .culture-title {
+            font-family: 'Bungee Inline', cursive;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            text-align: center;
+            color: var(--yellow);
+            margin-bottom: 3rem;
+            animation: rainbow 5s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: var(--red); }
+            25% { color: var(--yellow); }
+            50% { color: var(--green); }
+            75% { color: var(--purple); }
+            100% { color: var(--red); }
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .culture-item {
+            background: linear-gradient(45deg, var(--purple), var(--red));
+            padding: 2.5rem;
+            border: 10px double var(--gold);
+            border-radius: 50% 0 50% 0;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(255, 183, 3, 0.5);
+        }
+
+        .culture-item:hover {
+            border-radius: 0 50% 0 50%;
+            background: linear-gradient(45deg, var(--green), var(--orange));
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .culture-item h4 {
+            font-family: 'Black Ops One', cursive;
+            font-size: 2rem;
+            color: var(--yellow);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0 var(--black);
+        }
+
+        .culture-item p {
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Explosivo */
+        footer {
+            background: linear-gradient(45deg, var(--black) 0%, var(--red) 50%, var(--black) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 20px solid var(--yellow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '✊🏿✊🏾✊🏽✊🏿✊🏾✊🏽✊🏿✊🏾✊🏽✊🏿✊🏾✊🏽';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            font-size: 4rem;
+            opacity: 0.2;
+            animation: scrollEmoji 15s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scrollEmoji {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        .footer-text {
+            font-family: 'Audiowide', cursive;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color: var(--yellow);
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 0 var(--black);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .year-marker {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            color: var(--gold);
+            margin-top: 1rem;
+            text-shadow: 5px 5px 0 var(--purple);
+        }
+
+        /* Elementos decorativos flutuantes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            font-size: 3rem;
+        }
+
+        .shape:nth-child(2) {
+            top: 50%;
+            right: 10%;
+            animation-delay: 5s;
+            font-size: 4rem;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 10s;
+            font-size: 2.5rem;
+        }
+
+        .shape:nth-child(4) {
+            top: 30%;
+            right: 30%;
+            animation-delay: 15s;
+            font-size: 3.5rem;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-50px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(0) rotate(180deg);
+            }
+            75% {
+                transform: translateY(50px) rotate(270deg);
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .icons-grid,
+            .heroes-grid,
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .icon-card {
+                transform: rotate(0deg);
+            }
+
+            .hero-card {
+                clip-path: none;
+            }
+        }
+
+        /* Banner de Conscientização */
+        .awareness-banner {
+            background: var(--gold);
+            color: var(--black);
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            border-bottom: 5px solid var(--red);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape">✊🏿</div>
+        <div class="shape">🌍</div>
+        <div class="shape">✊🏾</div>
+        <div class="shape">⭐</div>
+    </div>
+
+    <div class="awareness-banner">
+        20 DE NOVEMBRO • DIA DA CONSCIÊNCIA NEGRA
+    </div>
+
+    <header>
+        <h1 class="hero-title">CONSCIÊNCIA<br>NEGRA</h1>
+        <p class="subtitle">RESISTÊNCIA • CULTURA • PODER</p>
+    </header>
+
+    <section class="quotes-section">
+        <blockquote class="quote">
+            "A luta do povo negro é contínua. Ontem, hoje e sempre por igualdade, justiça e respeito!"
+        </blockquote>
+    </section>
+
+    <section class="icons-grid">
+        <div class="icon-card">
+            <h3>RESISTÊNCIA</h3>
+            <p>Séculos de luta contra a opressão, desde os quilombos até os movimentos contemporâneos. A resistência negra é a base da nossa liberdade.</p>
+        </div>
+        <div class="icon-card">
+            <h3>ANCESTRALIDADE</h3>
+            <p>Honramos nossos ancestrais que atravessaram o Atlântico e mantiveram vivas nossas tradições, religiosidade e sabedoria milenar.</p>
+        </div>
+        <div class="icon-card">
+            <h3>CULTURA</h3>
+            <p>Do samba ao hip-hop, da capoeira ao afrobeat. A cultura negra é a pulsação criativa que move o mundo.</p>
+        </div>
+        <div class="icon-card">
+            <h3>REPRESENTATIVIDADE</h3>
+            <p>Ocupar espaços, ser visto, ser ouvido. A representatividade importa e transforma realidades.</p>
+        </div>
+        <div class="icon-card">
+            <h3>EDUCAÇÃO</h3>
+            <p>Conhecer nossa história verdadeira, não contada pelos colonizadores. A educação antirracista liberta.</p>
+        </div>
+        <div class="icon-card">
+            <h3>FUTURO</h3>
+            <p>Construindo um amanhã onde nossas crianças possam sonhar sem limites impostos pela cor da sua pele.</p>
+        </div>
+    </section>
+
+    <section class="heroes-section">
+        <h2 class="heroes-title">HERÓIS & HEROÍNAS</h2>
+        <div class="heroes-grid">
+            <div class="hero-card">
+                <div class="hero-name">ZUMBI</div>
+                <div class="hero-title-text">Líder do Quilombo dos Palmares</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">DANDARA</div>
+                <div class="hero-title-text">Guerreira de Palmares</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">CAROLINA MARIA DE JESUS</div>
+                <div class="hero-title-text">Escritora e Ativista</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">LUIZ GAMA</div>
+                <div class="hero-title-text">Abolicionista e Advogado</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">LÉLIA GONZÁLEZ</div>
+                <div class="hero-title-text">Intelectual e Feminista</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">MALCOLM X</div>
+                <div class="hero-title-text">Ativista dos Direitos Civis</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">MARIELLE FRANCO</div>
+                <div class="hero-title-text">Vereadora e Defensora dos Direitos Humanos</div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-name">ANGELA DAVIS</div>
+                <div class="hero-title-text">Filósofa e Ativista</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-section">
+        <div class="culture-content">
+            <h2 class="culture-title">EXPRESSÕES CULTURAIS</h2>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <h4>MÚSICA</h4>
+                    <p>Samba, jazz, blues, funk, reggae, hip-hop, afrobeat - ritmos que movem o mundo e contam nossas histórias.</p>
+                </div>
+                <div class="culture-item">
+                    <h4>CAPOEIRA</h4>
+                    <p>Arte marcial disfarçada de dança, símbolo máximo da resistência e malícia do povo negro brasileiro.</p>
+                </div>
+                <div class="culture-item">
+                    <h4>RELIGIÕES DE MATRIZ AFRICANA</h4>
+                    <p>Candomblé, umbanda e outras tradições que mantêm viva a conexão com nossos orixás e ancestrais.</p>
+                </div>
+                <div class="culture-item">
+                    <h4>LITERATURA</h4>
+                    <p>Vozes negras que narram nossas experiências, dores e vitórias através das palavras.</p>
+                </div>
+                <div class="culture-item">
+                    <h4>MODA</h4>
+                    <p>Do turbante aos estilos afrofuturistas, a moda negra é identidade, resistência e arte.</p>
+                </div>
+                <div class="culture-item">
+                    <h4>GASTRONOMIA</h4>
+                    <p>Sabores ancestrais que temperam a culinária brasileira: acarajé, feijoada, dendê e muito mais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quotes-section">
+        <blockquote class="quote">
+            "Enquanto houver racismo, não haverá democracia." - Abdias Nascimento
+        </blockquote>
+    </section>
+
+    <footer>
+        <p class="footer-text">VIDAS NEGRAS IMPORTAM • BLACK POWER • AXÉÉ</p>
+        <div class="year-marker">2024</div>
+    </footer>
+
+    <script>
+        // Suporte para dark mode (embora o site já seja predominantemente escuro)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Animação adicional para os cards ao entrar na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os cards
+        document.querySelectorAll('.icon-card, .hero-card, .culture-item').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+        // Adicionar keyframe para fadeInUp
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Log para debug (objetos não são inspecionáveis no iframe)
+        console.log('Site Consciência Negra carregado com sucesso!');
+    </script>
+</body>
+</html>
